@@ -85,3 +85,15 @@ def get_available_sweets():
         {"name": "Rasgulla", "price": 1.75, "available": False}
     ]
     return available_sweets
+
+@app.get("/search-sweets")
+def search_sweets(name: str):
+    available_sweets = [
+        {"name": "Gulab Jamun", "price": 1.50, "available": True},
+        {"name": "Jalebi", "price": 2.00, "available": True},
+        {"name": "Rasgulla", "price": 1.75, "available": False}
+    ]
+    for sweet in available_sweets:
+        if sweet["name"] == name:
+            return sweet
+    return {"message": "Sweet not found"}

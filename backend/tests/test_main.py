@@ -80,3 +80,8 @@ def test_get_available_sweets():
         {"name": "Jalebi", "price": 2.00, "available": True},
         {"name": "Rasgulla", "price": 1.75, "available": False}
     ]
+
+def test_search_sweets_by_name():
+    response = client.get("/search-sweets?name=Gulab Jamun")
+    assert response.status_code == 200
+    assert response.json() == {"name": "Gulab Jamun", "price": 1.50, "available": True}
