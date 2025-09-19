@@ -57,3 +57,7 @@ def get_sweet_by_id(sweet_id: int):
 @app.post("/add-chocolate")
 def add_chocolate(chocolate: Chocolate):
     return {"message": "Chocolate added successfully"}
+
+@app.put("/update-chocolate")
+def update_chocolate(chocolate: Chocolate):
+    return {"message": "Chocolate updated successfully"}

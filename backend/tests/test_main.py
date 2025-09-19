@@ -55,3 +55,9 @@ def test_add_chocolate():
     response = client.post("/add-chocolate", json=chocolate_data)
     assert response.status_code == 200
     assert response.json() == {"message": "Chocolate added successfully"}
+
+def test_update_chocolate():
+    updated_data = {"name": "Five Star", "price": 1.25}
+    response = client.put("/update-chocolate", json=updated_data)
+    assert response.status_code == 200
+    assert response.json() == {"message": "Chocolate updated successfully"}
