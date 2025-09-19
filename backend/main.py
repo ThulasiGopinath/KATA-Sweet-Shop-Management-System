@@ -1,4 +1,13 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
+
+class Sweet(BaseModel):
+    name: str
+    price: float
+
+class Chocolate(BaseModel):
+    name: str
+    price: float
 
 app = FastAPI()
 
@@ -21,3 +30,7 @@ def read_chocolates():
         {"name": "Dairy Milk", "price": 1.25},
         {"name": "Snickers", "price": 1.50}
     ]
+
+@app.post("/add-sweet")
+def add_sweet(sweet: Sweet):
+    return {"message": "Sweet added successfully"}

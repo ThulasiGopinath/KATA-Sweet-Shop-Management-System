@@ -27,3 +27,9 @@ def test_read_chocolates():
         {"name": "Dairy Milk", "price": 1.25},
         {"name": "Snickers", "price": 1.50}
     ]
+
+def test_add_sweet():
+    sweet_data = {"name": "Laddu", "price": 1.50}
+    response = client.post("/add-sweet", json=sweet_data)
+    assert response.status_code == 200
+    assert response.json() == {"message": "Sweet added successfully"}
