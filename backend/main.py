@@ -65,3 +65,14 @@ def update_chocolate(chocolate: Chocolate):
 @app.delete("/delete-chocolate/{name}")
 def delete_chocolate(name: str):
     return {"message": "Chocolate deleted successfully"}
+
+@app.get("/chocolates/{chocolate_id}")
+def get_chocolate_by_id(chocolate_id: int):
+    chocolates = [
+        {"name": "KitKat", "price": 1.00},
+        {"name": "Dairy Milk", "price": 1.25},
+        {"name": "Snickers", "price": 1.50}
+    ]
+    if chocolate_id >= 0 and chocolate_id < len(chocolates):
+        return chocolates[chocolate_id]
+    return {"error": "Chocolate not found"}
