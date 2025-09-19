@@ -18,3 +18,12 @@ def test_read_sweets():
         {"name": "Jalebi", "price": 2.00},
         {"name": "Rasgulla", "price": 1.75}
     ]
+
+def test_read_chocolates():
+    response = client.get("/chocolates")
+    assert response.status_code == 200
+    assert response.json() == [
+        {"name": "KitKat", "price": 1.00},
+        {"name": "Dairy Milk", "price": 1.25},
+        {"name": "Snickers", "price": 1.50}
+    ]
