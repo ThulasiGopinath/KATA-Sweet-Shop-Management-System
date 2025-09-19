@@ -53,3 +53,7 @@ def get_sweet_by_id(sweet_id: int):
     if sweet_id >= 0 and sweet_id < len(sweets):
         return sweets[sweet_id]
     return {"error": "Sweet not found"}
+
+@app.post("/add-chocolate")
+def add_chocolate(chocolate: Chocolate):
+    return {"message": "Chocolate added successfully"}

@@ -49,3 +49,9 @@ def test_get_sweet_by_id():
     response = client.get("/sweets/1")
     assert response.status_code == 200
     assert response.json() == {"name": "Jalebi", "price": 2.00}
+
+def test_add_chocolate():
+    chocolate_data = {"name": "Five Star", "price": 1.00}
+    response = client.post("/add-chocolate", json=chocolate_data)
+    assert response.status_code == 200
+    assert response.json() == {"message": "Chocolate added successfully"}
