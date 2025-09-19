@@ -38,3 +38,7 @@ def add_sweet(sweet: Sweet):
 @app.put("/update-sweet")
 def update_sweet(sweet: Sweet):
     return {"message": "Sweet updated successfully"}
+
+@app.delete("/delete-sweet/{name}")
+def delete_sweet(name: str):
+    return {"message": "Sweet deleted successfully"}

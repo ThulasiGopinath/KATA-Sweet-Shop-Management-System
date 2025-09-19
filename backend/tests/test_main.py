@@ -39,3 +39,8 @@ def test_update_sweet():
     response = client.put("/update-sweet", json=updated_data)
     assert response.status_code == 200
     assert response.json() == {"message": "Sweet updated successfully"}
+
+def test_delete_sweet():
+    response = client.delete("/delete-sweet/Laddu")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Sweet deleted successfully"}
