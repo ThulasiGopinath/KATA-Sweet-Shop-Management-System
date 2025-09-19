@@ -61,3 +61,7 @@ def add_chocolate(chocolate: Chocolate):
 @app.put("/update-chocolate")
 def update_chocolate(chocolate: Chocolate):
     return {"message": "Chocolate updated successfully"}
+
+@app.delete("/delete-chocolate/{name}")
+def delete_chocolate(name: str):
+    return {"message": "Chocolate deleted successfully"}

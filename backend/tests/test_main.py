@@ -61,3 +61,8 @@ def test_update_chocolate():
     response = client.put("/update-chocolate", json=updated_data)
     assert response.status_code == 200
     assert response.json() == {"message": "Chocolate updated successfully"}
+
+def test_delete_chocolate():
+    response = client.delete("/delete-chocolate/Five Star")
+    assert response.status_code == 200
+    assert response.json() == {"message": "Chocolate deleted successfully"}
