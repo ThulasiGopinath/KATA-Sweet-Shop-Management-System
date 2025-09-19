@@ -44,3 +44,8 @@ def test_delete_sweet():
     response = client.delete("/delete-sweet/Laddu")
     assert response.status_code == 200
     assert response.json() == {"message": "Sweet deleted successfully"}
+
+def test_get_sweet_by_id():
+    response = client.get("/sweets/1")
+    assert response.status_code == 200
+    assert response.json() == {"name": "Jalebi", "price": 2.00}

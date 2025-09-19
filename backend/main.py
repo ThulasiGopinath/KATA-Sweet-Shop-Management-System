@@ -42,3 +42,14 @@ def update_sweet(sweet: Sweet):
 @app.delete("/delete-sweet/{name}")
 def delete_sweet(name: str):
     return {"message": "Sweet deleted successfully"}
+
+@app.get("/sweets/{sweet_id}")
+def get_sweet_by_id(sweet_id: int):
+    sweets = [
+        {"name": "Gulab Jamun", "price": 1.50},
+        {"name": "Jalebi", "price": 2.00},
+        {"name": "Rasgulla", "price": 1.75}
+    ]
+    if sweet_id >= 0 and sweet_id < len(sweets):
+        return sweets[sweet_id]
+    return {"error": "Sweet not found"}
