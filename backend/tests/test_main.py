@@ -85,3 +85,9 @@ def test_search_sweets_by_name():
     response = client.get("/search-sweets?name=Gulab Jamun")
     assert response.status_code == 200
     assert response.json() == {"name": "Gulab Jamun", "price": 1.50, "available": True}
+
+def test_update_chocolate_quantity():
+    updated_data = {"name": "KitKat", "quantity": 10}
+    response = client.put("/update-chocolate-quantity", json=updated_data)
+    assert response.status_code == 200
+    assert response.json() == {"message": "Chocolate quantity updated successfully"}

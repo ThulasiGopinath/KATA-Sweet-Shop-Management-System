@@ -97,3 +97,13 @@ def search_sweets(name: str):
         if sweet["name"] == name:
             return sweet
     return {"message": "Sweet not found"}
+
+from pydantic import BaseModel
+
+class ChocolateUpdate(BaseModel):
+    name: str
+    quantity: int
+
+@app.put("/update-chocolate-quantity")
+def update_chocolate_quantity(chocolate: ChocolateUpdate):
+    return {"message": "Chocolate quantity updated successfully"}
