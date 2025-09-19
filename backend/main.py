@@ -76,3 +76,12 @@ def get_chocolate_by_id(chocolate_id: int):
     if chocolate_id >= 0 and chocolate_id < len(chocolates):
         return chocolates[chocolate_id]
     return {"error": "Chocolate not found"}
+
+@app.get("/available-sweets")
+def get_available_sweets():
+    available_sweets = [
+        {"name": "Gulab Jamun", "price": 1.50, "available": True},
+        {"name": "Jalebi", "price": 2.00, "available": True},
+        {"name": "Rasgulla", "price": 1.75, "available": False}
+    ]
+    return available_sweets

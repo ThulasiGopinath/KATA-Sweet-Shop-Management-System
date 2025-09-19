@@ -71,3 +71,12 @@ def test_get_chocolate_by_id():
     response = client.get("/chocolates/1")
     assert response.status_code == 200
     assert response.json() == {"name": "Dairy Milk", "price": 1.25}
+
+def test_get_available_sweets():
+    response = client.get("/available-sweets")
+    assert response.status_code == 200
+    assert response.json() == [
+        {"name": "Gulab Jamun", "price": 1.50, "available": True},
+        {"name": "Jalebi", "price": 2.00, "available": True},
+        {"name": "Rasgulla", "price": 1.75, "available": False}
+    ]
