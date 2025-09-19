@@ -34,3 +34,7 @@ def read_chocolates():
 @app.post("/add-sweet")
 def add_sweet(sweet: Sweet):
     return {"message": "Sweet added successfully"}
+
+@app.put("/update-sweet")
+def update_sweet(sweet: Sweet):
+    return {"message": "Sweet updated successfully"}
